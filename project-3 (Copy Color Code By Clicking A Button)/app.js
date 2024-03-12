@@ -11,11 +11,15 @@ window.onload = function () {
 }
 
 // Step-2 - Generate random color
-function generateRandomColor(number) {
-    const red = Math.floor(Math.random() * number);
-    const green = Math.floor(Math.random() * number);
-    const blue = Math.floor(Math.random() * number);
-    return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+
+// Hex code generator
+function generateHexColorCode() {
+    const hexCode = '0123456789ABCDEF';
+    let hexColorCode = '#';
+    for (i = 0; i < 6; i++) {
+        hexColorCode += hexCode[Math.floor(Math.random() * 16)];
+    }
+    return hexColorCode;
 }
 
 // Step-3 - Create click handler
@@ -25,7 +29,7 @@ function changeBgColor() {
     const output = document.getElementById('output');
 
     changeColorBtn.addEventListener('click', function () {
-        const randomColor = generateRandomColor(255);
+        const randomColor = generateHexColorCode();
         root.style.backgroundColor = randomColor;
         output.value = randomColor;
     });
