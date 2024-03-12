@@ -48,7 +48,7 @@
 }
 
 .toast-message {
-    background: green;
+    background: #ffcfcf;
     padding: 15px;
     border-radius: 10px;
     color: #fff;
@@ -59,10 +59,11 @@
     border: 1px solid #ffcfcf;
     transition: all 0.3s ease;
     cursor: pointer;
+    opacity: 0;
 }
 
 .message-in {
-    animation: message-in 500ms ease-in;
+    animation: message-in 300ms ease-in;
     opacity: 1;
 }
 
@@ -73,7 +74,7 @@
 
 @keyframes message-in {
     from {
-        right: -200px;
+        right: -250px;
     }
 
     to {
@@ -87,6 +88,6 @@
     }
 
     to {
-        right: -200px;
+        right: -250px;
     }
 }

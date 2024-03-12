@@ -6,6 +6,10 @@
  * - Add a toast message or notification when copied
  */
 
+
+// Globals
+let div = null;
+
 // Step-1 - Load click handler
 window.onload = function () {
     changeBgColor();
@@ -42,32 +46,39 @@ function copyColorCode() {
     const copyCodeBtn = document.getElementById('copy-code');
     copyCodeBtn.addEventListener('click', function () {
         navigator.clipboard.writeText(output.value);
+        if (div != null) {
+            div.remove();
+            div = null;
+        }
         generateToastMessage(`${output.value} has been copied successfully`);
     });
 }
 
 // Show toast message
 function generateToastMessage(message) {
-    const div = document.createElement('div');
+    div = document.createElement('div');
     div.innerText = message;
     div.className = 'toast-message message-in';
+    div.style.color = `${output.value}`;
     document.body.appendChild(div);
-    
+
     // Removing message by clicking on message popup;
     div.addEventListener('click', function () {
         div.classList.remove('message-in');
         div.classList.add('message-out');
         div.addEventListener('animationend', function () {
-            this.remove();
-        })
+            div.remove();
+            div = null;
+        });
     });
-    
+
     // Removing message after 5 sec showing the message;
     setTimeout(() => {
         div.classList.remove('message-in');
         div.classList.add('message-out');
         div.addEventListener('animationend', function () {
-            this.remove();
-        })
+            div.remove();
+            div = null;
+        });
     }, 5000);
 }
