@@ -1,5 +1,8 @@
 /**
- * Requirment - Chnage background color by clicking the change color button
+ * Project Requirments:
+ * - Generate random color by clicking generate button and change background color
+ * - Show the color code in the input field
+ * - Copy the color code from the input clicking by the copy button
  */
 
 // Step-1 - Load click handler
@@ -8,10 +11,10 @@ window.onload = function () {
 }
 
 // Step-2 - Generate random color
-function generateRandomColor() {
-    const red = Math.floor(Math.random() * 255);
-    const green = Math.floor(Math.random() * 255);
-    const blue = Math.floor(Math.random() * 255);
+function generateRandomColor(number) {
+    const red = Math.floor(Math.random() * number);
+    const green = Math.floor(Math.random() * number);
+    const blue = Math.floor(Math.random() * number);
     return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
 }
 
@@ -22,13 +25,11 @@ function changeBgColor() {
     const output = document.getElementById('output');
 
     changeColorBtn.addEventListener('click', function () {
-        const randomColor = generateRandomColor();
-        console.log(randomColor);
+        const randomColor = generateRandomColor(255);
         root.style.backgroundColor = randomColor;
         output.value = randomColor;
-    })
-    // Copy color code
-    copyColorCode();
+    });
+    copyColorCode(); // Copy color code
 
 }
 
