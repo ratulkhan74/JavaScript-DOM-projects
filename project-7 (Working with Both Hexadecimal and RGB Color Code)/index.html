@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Generate random color</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <div class="container" id="root">
+            <div class="inner-wrapper">
+                <div>
+                    <!-- <h2>Generate color code by clicking the generate color button</h2> -->
+                    <div class="input-group">
+                        <label>Hex Color</label>
+                        <div class="input-inner">
+                            <span class="input-wrapper">
+                                <span class="hash-icon">#</span>
+                                <input type="text" value="212121" id="output-hex" class="output">
+                            </span>
+                            <input type="button" value="Copy" id="copy-hex" class="copy-code">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>RGB Color</label>
+                        <div class="input-inner">
+                            <span class="input-wrapper">
+                                <input disabled type="text" value="rgb(255,255,255)" id="output-rgb" class="output">
+                            </span>
+                            <input type="button" value="Copy" id="copy-rgb" class="copy-code">
+                        </div>
+                    </div>
+                </div>
+                <button id="generate-color">Generate color</button>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+
+    </body>
+
+</html>
